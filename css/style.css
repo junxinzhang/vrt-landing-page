@@ -456,6 +456,25 @@ a {
   padding: 14px;
 }
 
+
+.shot-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 123, 255, 0.24);
+  background: #f8fbff;
+  display: block;
+}
+
+.shot-video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid rgba(15, 123, 255, 0.24);
+  border-radius: 14px;
+  background: #000;
+}
+
 .shot-placeholder figcaption {
   margin-top: 8px;
   color: var(--text-muted);
