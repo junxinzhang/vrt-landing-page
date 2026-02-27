@@ -4,7 +4,7 @@
 
 **在线地址：** https://vrt.junxinzhang.com
 
-![页面预览](assets/screenshot.png)
+![页面预览](assets/vrt-1.jpg)
 
 ---
 
@@ -16,11 +16,14 @@
 
 - 实时、低延迟、macOS 原生体验价值主张
 - 功能清单、场景说明、FAQ
-- 截图占位区（后续替换真实截图）
+- 真实截图与演示视频（已替换占位）
 
-## 技术栈
+## 媒体素材（已更新）
 
-- HTML5 / CSS3 / JavaScript
+- 截图 1：`assets/vrt-1.jpg`
+- 截图 2：`assets/vrt-2.jpg`
+- 演示视频（B站）：https://www.bilibili.com/video/BV1LyA2zSEnZ
+- 安装包：`downloads/VoiceTranslation.dmg`
 
 ## 本地预览
 
@@ -50,6 +53,13 @@ python3 -m http.server 8080
 ## Overview
 
 This folder contains static assets for the VRT landing page.
+
+## Updated Media
+
+- Screenshot 1: `assets/vrt-1.jpg`
+- Screenshot 2: `assets/vrt-2.jpg`
+- Demo video (Bilibili): https://www.bilibili.com/video/BV1LyA2zSEnZ
+- macOS installer: `downloads/VoiceTranslation.dmg`
 
 ## Stack
 
