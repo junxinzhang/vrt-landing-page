@@ -5,6 +5,9 @@
   const navLinks = document.getElementById('nav-links');
   const navAnchors = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
   const yearEl = document.getElementById('year');
+  const revealNodes = Array.from(
+    document.querySelectorAll('.hero-card, .card, .feature-list, .feature-panel, .shot-placeholder, .faq-item, .cta-inner')
+  );
 
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
@@ -15,6 +18,7 @@
       return;
     }
     menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', '打开导航菜单');
     navLinks.classList.remove('is-open');
     body.classList.remove('nav-open');
   };
@@ -24,6 +28,7 @@
       return;
     }
     menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.setAttribute('aria-label', '关闭导航菜单');
     navLinks.classList.add('is-open');
     body.classList.add('nav-open');
   };
@@ -50,6 +55,12 @@
         return;
       }
       closeMenu();
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
     });
 
     window.addEventListener('resize', () => {
@@ -93,17 +104,20 @@
   };
 
   if ('IntersectionObserver' in window && sections.length > 0) {
+    setActiveLink('hero');
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
-          }
-        });
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]) {
+          setActiveLink(visible[0].target.id);
+        }
       },
       {
-        rootMargin: '-40% 0px -45% 0px',
-        threshold: 0
+        rootMargin: '-38% 0px -45% 0px',
+        threshold: [0, 0.2, 0.45, 0.7]
       }
     );
 
@@ -112,6 +126,34 @@
     });
   } else {
     setActiveLink('hero');
+  }
+
+  if (revealNodes.length > 0) {
+    revealNodes.forEach((node, index) => {
+      node.classList.add('will-reveal');
+      node.style.transitionDelay = `${Math.min(index % 4, 3) * 40}ms`;
+    });
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          rootMargin: '0px 0px -10% 0px',
+          threshold: 0.12
+        }
+      );
+
+      revealNodes.forEach((node) => revealObserver.observe(node));
+    } else {
+      revealNodes.forEach((node) => node.classList.add('is-revealed'));
+    }
   }
 
   const updateHeaderState = () => {
