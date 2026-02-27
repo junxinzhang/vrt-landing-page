@@ -1,0 +1,21 @@
+{
+  "name": "Voice Real-time Translation",
+  "short_name": "VRT",
+  "description": "macOS 实时语音转写与翻译",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f8ff",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "assets/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
