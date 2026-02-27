@@ -22,8 +22,24 @@
 
 - 截图 1：`assets/vrt-1.jpg`
 - 截图 2：`assets/vrt-2.jpg`
-- 演示视频（B站）：https://www.bilibili.com/video/BV1LyA2zSEnZ
 - 安装包：`downloads/VoiceTranslation.dmg`
+
+### 演示视频（Bilibili，默认尝试 1080P）
+
+> 说明：B 站最终清晰度受账号权限、网络与播放器策略影响；以下参数会优先请求高清档。
+
+<iframe
+  src="https://player.bilibili.com/player.html?bvid=BV1LyA2zSEnZ&page=1&high_quality=1&danmaku=0"
+  scrolling="no"
+  border="0"
+  frameborder="no"
+  framespacing="0"
+  allowfullscreen="true"
+  width="100%"
+  height="520"
+></iframe>
+
+备用直达链接：https://www.bilibili.com/video/BV1LyA2zSEnZ
 
 ## 本地预览
 
@@ -58,7 +74,7 @@ This folder contains static assets for the VRT landing page.
 
 - Screenshot 1: `assets/vrt-1.jpg`
 - Screenshot 2: `assets/vrt-2.jpg`
-- Demo video (Bilibili): https://www.bilibili.com/video/BV1LyA2zSEnZ
+- Demo video (Bilibili, HD preferred): https://www.bilibili.com/video/BV1LyA2zSEnZ
 - macOS installer: `downloads/VoiceTranslation.dmg`
 
 ## Stack
