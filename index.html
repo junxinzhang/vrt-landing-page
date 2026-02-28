@@ -31,6 +31,28 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="./css/style.css">
 
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ca2efa711b1a5fefdd03ba4355a49406";
+      var firstScript = document.getElementsByTagName("script")[0];
+      firstScript.parentNode.insertBefore(hm, firstScript);
+    })();
+  </script>
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="df2642a3-5ba6-4d9f-8609-060fd2d69e38"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y9RHGQ0TG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2Y9RHGQ0TG');
+  </script>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -85,7 +107,7 @@
             低延迟输出，让跨语言会议、远程沟通和内容创作不断线。
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#cta">立即免费试用</a>
+            <a class="btn btn-primary" href="downloads/VoiceTranslation.dmg" target="_blank" rel="noopener">下载 macOS DMG</a>
             <a class="btn btn-secondary" href="#screenshots">查看演示</a>
           </div>
           <div class="hero-meta">
@@ -193,26 +215,27 @@
     <section class="section section-alt" id="screenshots">
       <div class="container">
         <div class="section-head">
-          <p class="section-tag">截图占位区</p>
-          <h2>产品界面预览（后续替换为真实截图）</h2>
-          <p class="section-desc">【截图占位】此处展示「实时转写 + 双语翻译同屏」主界面截图（后续替换真实产品图）</p>
-          <p class="section-desc">以下模块为占位内容，请在上线前替换成最新产品截图或录屏帧。</p>
+          <p class="section-tag">产品截图与演示</p>
+          <h2>产品界面预览</h2>
+          <p class="section-desc">包含真实截图与演示视频，展示 VRT 在真实沟通场景下的使用体验。</p>
         </div>
 
         <div class="shot-grid">
           <figure class="shot-placeholder">
-            <div class="shot-box">后续替换截图：实时对话主界面</div>
+            <img class="shot-image" src="assets/vrt-1.jpg" alt="VRT 实时会话截图" loading="lazy" />
             <figcaption>实时会话视图</figcaption>
           </figure>
           <figure class="shot-placeholder">
-            <div class="shot-box">后续替换截图：字幕与翻译面板</div>
+            <img class="shot-image" src="assets/vrt-2.jpg" alt="VRT 翻译面板截图" loading="lazy" />
             <figcaption>双语字幕面板</figcaption>
           </figure>
-          <figure class="shot-placeholder">
-            <div class="shot-box">后续替换截图：设置与词库配置</div>
-            <figcaption>配置与管理后台</figcaption>
+          <figure class="shot-placeholder shot-video">
+            <iframe class="shot-video-frame" src="https://player.bilibili.com/player.html?bvid=BV1LyA2zSEnZ&page=1" title="VRT 实时翻译演示视频（Bilibili）" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+            <figcaption>产品演示视频（Bilibili）</figcaption>
           </figure>
         </div>
+
+        <p class="section-desc" style="margin-top: 14px;">下载地址：<a href="downloads/VoiceTranslation.dmg" target="_blank" rel="noopener">VoiceTranslation.dmg</a></p>
       </div>
     </section>
 
@@ -269,39 +292,40 @@
 
     <section class="section cta" id="cta">
       <div class="container cta-inner">
-        <h2>Move faster across languages.</h2>
-        <p>Try Voice Real-time Translation on macOS and make every multilingual conversation instantly understandable.</p>
-
-        <div class="contact-grid" aria-label="联系方式">
-          <div class="contact-card">
-            <h3>Discord 社区</h3>
-            <p>加入开发者交流群，获取产品更新与使用支持。</p>
-            <a class="btn btn-primary" href="https://discord.gg/tZKbMc5r" target="_blank" rel="noopener noreferrer">加入 Discord</a>
-          </div>
-
-          <div class="contact-card contact-card-qr">
-            <h3>微信群</h3>
-            <p>扫码加入微信群，和我们直接交流需求与反馈。</p>
-            <img src="assets/wechat-group-qr.jpg" alt="VRT 微信群二维码" class="wechat-qr">
-          </div>
+        <h2>立即体验 VRT 实时翻译</h2>
+        <p>我们的实时语音转写与翻译方案可根据你的业务场景定制部署，欢迎联系沟通需求与落地方案。</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://v2ex.com/t/1194643" target="_blank" rel="noopener">V2EX 讨论</a>
+          <a class="btn btn-secondary" href="mailto:jason2023zhang@gmail.com">邮件咨询</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-wrap">
+    <div class="container footer-grid">
       <div>
         <p class="footer-brand">Voice Real-time Translation</p>
-        <p class="footer-note">让语言不再成为协作瓶颈。为 macOS 打造的实时、低延迟语音翻译体验。</p>
+        <p class="footer-note">专注 macOS 场景的实时语音转写与翻译，让跨语言沟通更顺畅、更高效。</p>
       </div>
-      <div class="footer-links" aria-label="页脚链接">
-        <a href="#features">功能清单</a>
-        <a href="#faq">FAQ</a>
-        <a href="#cta">联系</a>
+      <div>
+        <h3 class="footer-title">快速导航</h3>
+        <ul class="footer-list">
+          <li><a href="#features">功能清单</a></li>
+          <li><a href="#screenshots">产品演示</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-title">联系方式</h3>
+        <ul class="footer-list">
+          <li><a href="mailto:jason2023zhang@gmail.com">jason2023zhang@gmail.com</a></li>
+          <li><a href="https://v2ex.com/t/1194643" target="_blank" rel="noopener">V2EX 讨论帖</a></li>
+          <li><span>winnielove2020（微信）</span></li>
+        </ul>
       </div>
     </div>
-    <p class="copyright">© <span id="year"></span> Voice Real-time Translation. All rights reserved.</p>
+    <p class="copyright">© <span id="year"></span> Just Jason. Voice Real-time Translation. All rights reserved.</p>
   </footer>
 
   <script src="./js/main.js"></script>
