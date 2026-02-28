@@ -177,6 +177,69 @@
     primaryHeroAction.textContent = '下载 macOS DMG';
   }
 
+  const countApiBaseUrl = 'https://api.countapi.xyz';
+  const countApiNamespace = 'vrt-junxinzhang-com';
+  const totalDownloadCountKey = 'download-clicks-total';
+  const uniqueDownloadUserKey = 'download-users-unique';
+  const uniqueDownloadStorageKey = 'vrt-download-user-counted-v1';
+
+  const sanitizeCounterKey = (value) =>
+    String(value)
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
+  const buildCounterUrl = (action, key) =>
+    `${countApiBaseUrl}/${action}/${encodeURIComponent(countApiNamespace)}/${encodeURIComponent(key)}`;
+
+  const pingCounter = (key) => {
+    const url = `${buildCounterUrl('hit', key)}?t=${Date.now()}`;
+
+    if (typeof window.fetch === 'function') {
+      window.fetch(url, {
+        method: 'GET',
+        mode: 'no-cors',
+        cache: 'no-store',
+        keepalive: true
+      }).catch(() => {});
+      return;
+    }
+
+    const image = new Image();
+    image.referrerPolicy = 'no-referrer';
+    image.src = url;
+  };
+
+  window.vrtDownloadStats = {
+    totalDownloads: buildCounterUrl('get', totalDownloadCountKey),
+    uniqueDownloadUsers: buildCounterUrl('get', uniqueDownloadUserKey)
+  };
+
+  const trackCountApiDownload = ({ fileName, platform }) => {
+    const fileKey = sanitizeCounterKey(`${platform}-${fileName}`);
+    const fileDownloadCountKey = `download-clicks-${fileKey}`;
+    const fileUniqueStorageKey = `${uniqueDownloadStorageKey}:${fileKey}`;
+    const fileUniqueCountKey = `download-users-${fileKey}`;
+
+    pingCounter(totalDownloadCountKey);
+    pingCounter(fileDownloadCountKey);
+
+    try {
+      if (!window.localStorage.getItem(uniqueDownloadStorageKey)) {
+        window.localStorage.setItem(uniqueDownloadStorageKey, String(Date.now()));
+        pingCounter(uniqueDownloadUserKey);
+      }
+
+      if (!window.localStorage.getItem(fileUniqueStorageKey)) {
+        window.localStorage.setItem(fileUniqueStorageKey, String(Date.now()));
+        pingCounter(fileUniqueCountKey);
+      }
+    } catch (error) {
+      // Storage can be blocked in privacy modes; total downloads are still counted.
+    }
+  };
+
   const trackDownloadClick = (link) => {
     if (!(link instanceof HTMLAnchorElement)) {
       return;
@@ -210,6 +273,8 @@
     if (Array.isArray(window._hmt)) {
       window._hmt.push(['_trackEvent', 'download', platform, fileName]);
     }
+
+    trackCountApiDownload({ fileName, platform });
   };
 
   const downloadLinks = Array.from(
